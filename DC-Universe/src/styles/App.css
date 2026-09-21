@@ -1,0 +1,108 @@
+@import './Navbar.css';
+@import './Hero.css';
+@import './Filters.css';
+@import './CharacterCard.css';
+@import './CharacterModal.css';
+@import './Pagination.css';
+@import './Footer.css';
+.app {
+  min-height: 100vh;
+  background: radial-gradient(ellipse at 50% 8%,#07304355,transparent 42%);
+}
+.container {
+  width: min(1280px,calc(100% - 64px));
+  margin-inline: auto;
+}
+main {
+  padding-bottom: 48px;
+}
+.section-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  margin: 30px 0 18px;
+}
+.section-heading h2 {
+  font-size: 15px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin: 0;
+}
+.section-heading span {
+  color: var(--muted);
+  font: 11px Consolas,monospace;
+}
+.state-box {
+  text-align: center;
+  padding: 55px 20px;
+  border: 1px dashed #ffffff20;
+  border-radius: 10px;
+  background: #0c1017aa;
+}
+.state-box h3 {
+  font-size: 18px;
+  margin: 20px 0 10px;
+}
+.state-box p {
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.7;
+}
+.state-symbol {
+  font-size: 32px;
+  color: var(--cyan);
+}
+.loader-ring {
+  width: 42px;
+  height: 42px;
+  border: 1px solid #00e5ff33;
+  border-top: 2px solid var(--cyan);
+  border-radius: 50%;
+  margin: auto;
+  animation: orbit 1.5s linear infinite;
+}
+.sandbox {
+  margin-top: 40px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  overflow: hidden;
+}
+.sandbox summary {
+  padding: 18px;
+  color: var(--muted);
+  font: 11px Consolas,monospace;
+  letter-spacing: 1px;
+  cursor: pointer;
+}
+.sandbox-tabs {
+  display: flex;
+  gap: 8px;
+  padding: 0 18px 16px;
+  flex-wrap: wrap;
+}
+.sandbox-tabs button {
+  font-size: 10px;
+}
+.sandbox .state-box {
+  border-width: 1px 0 0;
+  border-radius: 0;
+}
+.storage-note {
+  color: var(--gold);
+  font-size: 12px;
+}
+@keyframes orbit {
+  to {
+    transform: rotate(360deg);
+  }
+}
+@media(max-width:600px) {
+  .container {
+    width: calc(100% - 32px);
+  }
+  .section-heading span {
+    max-width: 110px;
+    text-align: right;
+  }
+}

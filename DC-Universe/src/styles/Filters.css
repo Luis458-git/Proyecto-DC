@@ -1,0 +1,63 @@
+.filters {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+  padding: 20px 0;
+  border-block: 1px solid var(--line);
+}
+.filter-chips,.view-controls {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  flex-wrap: wrap;
+}
+.filter-chips button {
+  font-size: 11px;
+  padding: 9px 12px;
+  border-radius: 20px;
+}
+.filter-chips button::before {
+  content: '';
+  display: inline-block;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #657388;
+  margin-right: 7px;
+}
+.filter-chips button[aria-pressed=true]::before {
+  background: var(--cyan);
+  box-shadow: 0 0 7px var(--cyan);
+}
+.filter-chips .villain-filter::before {
+  background: #fb7185;
+}
+.view-controls label {
+  font-size: 11px;
+  color: var(--muted);
+}
+.view-controls select {
+  max-width: 160px;
+  border: 1px solid var(--line);
+  border-radius: 5px;
+  background: #0c1017;
+  padding: 9px;
+  color: #d1dbe7;
+  font-size: 11px;
+}
+.view-controls button {
+  padding: 7px 10px;
+  font-size: 15px;
+}
+@media(max-width:600px) {
+  .filters {
+    gap: 18px;
+  }
+  .view-controls {
+    width: 100%;
+  }
+  .view-controls select {
+    margin-right: auto;
+  }
+}

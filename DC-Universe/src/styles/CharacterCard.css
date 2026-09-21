@@ -1,0 +1,219 @@
+.character-grid {
+  display: grid;
+  grid-template-columns: repeat(4,minmax(0,1fr));
+  gap: 20px;
+}
+.character-card {
+  position: relative;
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: #0e141e;
+  transition: transform .25s,border-color .25s;
+}
+.character-card:hover {
+  transform: translateY(-4px);
+  border-color: #00e5ff60;
+}
+.card-portrait {
+  position: relative;
+  height: 280px;
+  background: radial-gradient(ellipse,#213b49,#10151f);
+  overflow: hidden;
+}
+.card-portrait::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(0deg,#0e141e,transparent 65%);
+  pointer-events: none;
+}
+.card-portrait img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 20%;
+  transition: transform .4s;
+}
+.character-card:hover .card-portrait img {
+  transform: scale(1.04);
+}
+.portrait-fallback {
+  height: 100%;
+  display: grid;
+  place-items: center;
+  font-size: 64px;
+  font-weight: 900;
+  color: #56808b;
+}
+.card-badges {
+  position: absolute;
+  top: 14px;
+  left: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+  z-index: 1;
+  max-width: 65%;
+}
+.badge {
+  font: 9px Consolas,monospace;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  background: #07151dd9;
+  color: #7df5ff;
+  border: 1px solid #00e5ff44;
+  padding: 5px 7px;
+  border-radius: 3px;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.badge.bad {
+  color: #ff9baa;
+  border-color: #fb718550;
+  background: #300e18dc;
+}
+.badge.neutral {
+  color: var(--gold);
+  border-color: #facc1544;
+}
+.favorite-button {
+  position: absolute;
+  right: 12px;
+  top: 12px;
+  z-index: 1;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  background: #080c15cc;
+  font-size: 21px;
+}
+.favorite-button[aria-pressed=true] {
+  color: var(--gold);
+  border-color: #facc1566;
+  background: #29240ed9;
+}
+.card-body {
+  position: relative;
+  margin-top: -38px;
+  padding: 0 18px 18px;
+}
+.card-body h3 {
+  font-size: 23px;
+  letter-spacing: -.5px;
+  margin: 5px 0 7px;
+}
+.identity {
+  color: #a3b2c3;
+  font-size: 11px;
+  margin-bottom: 9px;
+}
+.origin {
+  color: #91a1b5;
+  font-size: 10px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  margin-bottom: 19px;
+}
+.card-stat {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font: 9px Consolas,monospace;
+  letter-spacing: 1px;
+  color: #a4b4c6;
+  margin: 12px 0 8px;
+}
+.card-stat strong {
+  font-size: 16px;
+  color: var(--gold);
+}
+progress {
+  appearance: none;
+  width: 100%;
+  height: 4px;
+  border: 0;
+  border-radius: 4px;
+  background: #253040;
+  display: block;
+  overflow: hidden;
+}
+progress::-webkit-progress-bar {
+  background: #253040;
+}
+progress::-webkit-progress-value {
+  background: var(--cyan);
+}
+progress::-moz-progress-bar {
+  background: var(--cyan);
+}
+.dossier-button {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 18px;
+  border-color: #ffffff12;
+  background: #151e2a;
+  font: 10px Consolas,monospace;
+  letter-spacing: 1px;
+}
+.dossier-button span {
+  color: var(--cyan);
+}
+.character-grid.list-view {
+  grid-template-columns: 1fr;
+}
+.list-view .character-card {
+  display: grid;
+  grid-template-columns: 150px minmax(0,1fr);
+}
+.list-view .card-portrait {
+  height: 220px;
+}
+.list-view .card-body {
+  margin: 0;
+  padding: 20px;
+}
+.list-view .card-badges {
+  top: 8px;
+  left: 8px;
+}
+.list-view .favorite-button {
+  right: 8px;
+  top: auto;
+  bottom: 10px;
+}
+@media(max-width:1050px) {
+  .character-grid {
+    grid-template-columns: repeat(2,minmax(0,1fr));
+  }
+  .card-portrait {
+    height: 330px;
+  }
+}
+@media(max-width:600px) {
+  .character-grid {
+    grid-template-columns: 1fr;
+  }
+  .card-portrait {
+    height: 370px;
+  }
+  .list-view .character-card {
+    grid-template-columns: 100px minmax(0,1fr);
+  }
+  .list-view .card-body {
+    padding: 14px;
+  }
+  .list-view .card-body h3 {
+    font-size: 20px;
+  }
+  .list-view .card-badges {
+    max-width: 90%;
+  }
+}

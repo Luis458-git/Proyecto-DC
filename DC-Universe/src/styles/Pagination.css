@@ -1,0 +1,39 @@
+.pagination {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  border-top: 1px solid var(--line);
+  padding-top: 22px;
+  margin-top: 28px;
+}
+.pagination p {
+  margin: 0;
+  font-size: 11px;
+  color: var(--muted);
+}
+.pagination nav {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.pagination button {
+  font: 10px Consolas,monospace;
+  min-width: 32px;
+  padding: 9px;
+}
+.pagination .ellipsis {
+  color: var(--muted);
+  font-size: 12px;
+}
+@media(max-width:600px) {
+  .pagination {
+    flex-direction: column;
+  }
+  .pagination nav {
+    gap: 4px;
+  }
+  .pagination button {
+    padding: 9px 7px;
+  }
+}
